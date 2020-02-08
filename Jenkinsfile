@@ -5,7 +5,7 @@ node() {
             checkout scm
         }
         stage('Build') {
-            docker.image('node:6.3').inside {
+            docker.image('node:13.8.0').inside {
                 sh 'npm --version'
             }
         }
