@@ -1,4 +1,4 @@
-node('docker') {
+node() {
     def docker_image
     def commit_id
         stage('Clone Repository') {
