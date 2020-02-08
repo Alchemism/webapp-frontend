@@ -1,0 +1,68 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #09d3ac;
+}
+
+.Collapsible {
+  background-color: white; }
+
+.Collapsible__contentInner {
+  padding: 10px;
+  border-top: 0; }
+.Collapsible__contentInner p {
+  margin-bottom: 10px;
+  font-size: 14px;
+  line-height: 20px; }
+  .Collapsible__contentInner p:last-child {
+    margin-bottom: 0; }
+
+.Collapsible__trigger {
+  display: block;
+  width:50%;
+  font-weight: 400;
+  text-decoration: none;
+  color: #333333;
+  position: relative;
+  border: 1px solid white;
+  padding: 10px;
+  background: #5f5e5b;
+  color: white; }
+.Collapsible__trigger:after {
+  font-family: 'FontAwesome';
+  content: '\f078';
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  display: block;
+  transition: transform 300ms; }
+.Collapsible__trigger.is-open:after {
+  transform: rotateZ(180deg); }
+.Collapsible__trigger.is-disabled {
+  opacity: 0.5;
+  background-color: grey; }
+
+.weather-entry{
+  border:1px solid black;
+  width:380px;
+  padding: 10px;
+  margin-bottom: 5px;
+
+}
