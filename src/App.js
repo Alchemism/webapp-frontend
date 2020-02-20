@@ -3,6 +3,7 @@ import "./App.css";
 import getBooks from "./services/BookService";
 import Book from "./components/Book";
 import axios from "axios";
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -12,7 +13,7 @@ class App extends Component {
     }
     axios
     .get(
-      "http://localhost:8080/book"
+      "http://a19cf78fcec0a41c9b69fcff973dda2f-810871289.us-east-1.elb.amazonaws.com:8080/book"
   )
   .then(response =>
     {
