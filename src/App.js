@@ -14,7 +14,7 @@ class App extends Component {
     }
     axios
     .get(
-      this.backendurl + "/book"
+       "http://ab44af32eed7c4f1cb1b129ba0d5e6b2-708530741.us-east-1.elb.amazonaws.com:8080/book"
   )
   .then(response =>
     {
