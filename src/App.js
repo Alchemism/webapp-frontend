@@ -13,23 +13,26 @@ class App extends Component {
     }
     axios
     .get(
-      "http://a19cf78fcec0a41c9b69fcff973dda2f-810871289.us-east-1.elb.amazonaws.com:8080/book"
+      //"http://localhost:8080/book"
+      process.env.url + "/book"
   )
   .then(response =>
     {
+      console.log(response)
     var randval =  response.data[Math.floor(Math.random() * response.data.length)];
-  //console.log(randval);
+  console.log(randval);
     this.setState({books: response.data, random: randval})
   })
   }
 
   chooseRandom = () => {
     var randval =  this.state.books[Math.floor(Math.random() * this.state.books.length)];
-    //console.log(randval);
+    console.log(randval);
     this.setState({books: this.state.books, random: randval})
   }
   render() {
-    //console.log(this.state.books)
+    console.log(this.state.books)
+    console.log(this.state.random.id)
     //this.setState({books: getBooks})
     return(
       <div>
@@ -76,7 +79,7 @@ class App extends Component {
       </tr>
       </tbody>
     </table>
-    <button onClick={() => this.chooseRandom()}>
+    <button onClick={this.chooseRandom.bind(this)}>
     Next
     </button>
     </div>
