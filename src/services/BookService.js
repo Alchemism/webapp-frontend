@@ -7,11 +7,13 @@ import PASSWORD from "../ENV";
   const books = await response.json();
 this.setState({books:books})
 };*/
+
+const backendurl = process.env.url
+
 export const getBooks = async () => {
   return await axios
       .get(
-        /*"http://localhost:8080/book"*/
-        process.env.url + "/book" , {
+        "http://localhost:8080/book" , {
           auth: {
             username: "sonia@neu.com",
             password: 123456789

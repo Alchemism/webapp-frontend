@@ -5,6 +5,7 @@ import Book from "./components/Book";
 import axios from "axios";
 
 class App extends Component {
+  backendurl = process.env.url;
   constructor(props) {
     super(props);
     this.state = {
@@ -13,8 +14,7 @@ class App extends Component {
     }
     axios
     .get(
-      //"http://localhost:8080/book"
-      process.env.url + "/book"
+      this.backendurl + "/book"
   )
   .then(response =>
     {
