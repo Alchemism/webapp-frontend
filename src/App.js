@@ -4,10 +4,7 @@ import getBooks from "./services/BookService";
 import Book from "./components/Book";
 import axios from "axios";
 
-var url= process.env.loadbalancer_url+ "/book"
-console.log(url)
 class App extends Component {
-  /*backendurl = process.env.url;*/
   constructor(props) {
     super(props);
     this.state = {
@@ -16,24 +13,23 @@ class App extends Component {
     }
     axios
     .get(
-       url
+      "http://a8a69f9d76d77475da8baccabb91e7ba-359624516.us-east-1.elb.amazonaws.com:8080/book"
   )
   .then(response =>
     {
-    console.log(response)
     var randval =  response.data[Math.floor(Math.random() * response.data.length)];
-    console.log(randval);
+  //console.log(randval);
     this.setState({books: response.data, random: randval})
   })
   }
+
   chooseRandom = () => {
     var randval =  this.state.books[Math.floor(Math.random() * this.state.books.length)];
-    console.log(randval);
+    //console.log(randval);
     this.setState({books: this.state.books, random: randval})
   }
   render() {
-    console.log(this.state.books)
-    console.log(this.state.random.id)
+    //console.log(this.state.books)
     //this.setState({books: getBooks})
     return(
       <div>
@@ -80,7 +76,7 @@ class App extends Component {
       </tr>
       </tbody>
     </table>
-    <button onClick={this.chooseRandom.bind(this)}>
+    <button onClick={() => this.chooseRandom()}>
     Next
     </button>
     </div>
