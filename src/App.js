@@ -1,19 +1,30 @@
 import React, { Component } from "react";
+import { ErrorHandler} from 'universal-react-logger';
 import "./App.css";
 import getBooks from "./services/BookService";
 import Book from "./components/Book";
 import axios from "axios";
+
+/*const client = require('prom-client');
+const counter = new client.Counter({
+  name: 'book_counter',
+  help: 'book'
+});
+counter.inc(); // Inc with 1 */
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       books : [],
-      random : ''
+      random : '', 
+      counter: 0,
+      error: this.props.error,
+      errorInfo: this.props.errorInfo
     }
     axios
     .get(
-      "http://ac948cd55a3a4471b8ce023360539d8c-2010143948.us-east-1.elb.amazonaws.com:8080/book"
+      "http://ac977afbf46a344d78f8837d34a64a0a-216564733.us-east-1.elb.amazonaws.com:8080/book"
   )
   .then(response =>
     {
@@ -22,17 +33,25 @@ class App extends Component {
     this.setState({books: response.data, random: randval})
   })
   }
-
+ 
   chooseRandom = () => {
     var randval =  this.state.books[Math.floor(Math.random() * this.state.books.length)];
     //console.log(randval);
     this.setState({books: this.state.books, random: randval})
+    //counter.inc()
+    this.setState(({counter}) => ({
+      counter: counter + 1
+  }))
   }
   render() {
+    if (this.state.counter === 5) {
+      // Simulate a render error
+      throw new Error('Error on render');
+  }
     //console.log(this.state.books)
     //this.setState({books: getBooks})
     return(
-      <div>
+      <div className= "table">
       <table>
       <thead>
         <tr>
@@ -79,9 +98,13 @@ class App extends Component {
     <button onClick={() => this.chooseRandom()}>
     Next
     </button>
+    <div className = "logger">
+                <button onClick={this.chooseRandom}>Update counter: {this.state.counter}</button>
+            </div>
     </div>
+    
     )   
   }
 }
-
-export default App;
+export default ErrorHandler(App, true);
+//export default App;
