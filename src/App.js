@@ -29,7 +29,7 @@ class App extends Component {
   .then(response =>
     {
     var randval =  response.data[Math.floor(Math.random() * response.data.length)];
-  //console.log(randval);
+  console.log(randval);
     this.setState({books: response.data, random: randval})
   })
   }
