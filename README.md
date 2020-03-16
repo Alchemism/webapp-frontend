@@ -60,6 +60,16 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/ma
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
 
+<<<<<<< HEAD
+### Deployment
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+
+### `npm run build` fails to minify
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify.
+=======
+>>>>>>> 9e67ff98d7e76b806aa69631b4e57f3a4ff7c260
 =======
 # react-weather-app
 >>>>>>> 9eb93b2a1e758000b431fe1cd98b0bb676d05edc
