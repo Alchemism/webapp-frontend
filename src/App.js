@@ -24,7 +24,7 @@ class App extends Component {
     }
     axios
     .get(
-      "http://ac977afbf46a344d78f8837d34a64a0a-216564733.us-east-1.elb.amazonaws.com:8080/book"
+      "http://localhost:8080/book"
   )
   .then(response =>
     {
@@ -44,7 +44,7 @@ class App extends Component {
   }))
   }
   render() {
-    if (this.state.counter === 5) {
+    if (this.state.counter === 50) {
       // Simulate a render error
       throw new Error('Error on render');
   }
