@@ -54,7 +54,6 @@ stage('Clone Helm Chart Repo')
             }
         }
     }
-
 def getChartVersion(){
     def version = sh (returnStdout: true, script: 'yq r ./frontend/Chart.yaml version')
     return version
